@@ -1,5 +1,4 @@
 <?php
-
 /* HELPERS */
 function short_text($text, $max = 120, $append = ' &hellip;') {
 	if (strlen($text) <= $max) return $text;
@@ -10,11 +9,6 @@ function short_text($text, $max = 120, $append = ' &hellip;') {
 function random_images($h, $w){
    echo 'https://loremflickr.com/'.$h.'/'.$w.'/bordeaux';
 }
-
-
-
-
-
 function displayAllAnnounces(){
     global $mysqli;
     $res = $mysqli->query("SELECT * FROM annonces");
@@ -30,8 +24,6 @@ function displayAllAnnounces(){
     <?php
     }
 }
-
-
 function displaySingleAnnounce($x){
     global $mysqli;
     $res = $mysqli->query("SELECT * FROM annonces WHERE id = '$x' LIMIT 1");

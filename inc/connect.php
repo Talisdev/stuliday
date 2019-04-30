@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     if( isset($_GET['logout']) ){
         session_destroy();
         header('Location: login.php');
@@ -8,7 +7,6 @@
     if( empty($_SESSION) && $page != "login" ){
         header('Location: login.php');
     }
-
          $bdd_url = "localhost";
         $bdd_user = "root";
     $bdd_password = "";

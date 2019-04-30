@@ -11,15 +11,15 @@
             while( $row = $res->fetch_assoc() ){
                 $bdd_password = $row['password_user']; // Récupérer le MDP correspondant si il y a un résultat
             }
-            if( $user_password == $bdd_password  ){ // Vérifier la concordance des MDP entre le formulaire et la BDD
+            if( password_verify($user_password, $bdd_password) === TRUE ){ // Vérifier la concordance des MDP entre le formulaire et la BDD
                 $message = "LOG OK";     // Chargement du message correspondant
                 $_SESSION['login_email'] = $_POST['user_email'];
                 header('Location: index.php');
             }else{
-                $message = "Mot de passe incorrect."; // Chargement du message correspondant
+                $message = '<div class="alert alert-danger">Mot de passe incorrect.</div>'; // Chargement du message correspondant
             }
         }else{
-            $message = "Identifiant inconnu.";
+            $message = '<div class="alert alert-danger">Identifiant inconnu.</div>';
         }
     }
     if( isset( $_POST['submit-signup'] ) ){
@@ -29,10 +29,11 @@
         if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){
             $compteur = $res->num_rows;
             if($compteur != 0){
-                $message = "Vous possédez déjà un compte.";
+                $message = '<div class="alert alert-danger">Vous possédez déjà un compte.</div>';
             }else{
                 if( $user_pass == $user_pass_2 ){
                 // Enregistrer le compte
+                $user_pass = password_hash($user_pass, PASSWORD_DEFAULT);
                 $add_user_query = "INSERT INTO `users`(
                     `email_user`,
                     `password_user`) 
@@ -41,14 +42,14 @@
                         '$user_pass'
                     )";
                     if( $res = $mysqli->query($add_user_query) ){
-                        $message ="Votre compte a bien été créé, vous pouvez maintenant vous enregistrer!";
+                        $message ='<div class="alert alert-success">Votre compte a bien été créé, vous pouvez maintenant vous enregistrer!</div>';
                     }
                 }else{
-                    $message = "Les mots de passe ne correspondent pas!";
+                    $message = '<div class="alert alert-danger">Les mots de passe ne correspondent pas!</div>';
                 }
             }
         }else{
-            $message = "Une erreur vient de se produire.";
+            $message = '<div class="alert alert-danger">Une erreur vient de se produire.</div>';
         }
     }
     require('inc/head.php');
@@ -57,9 +58,12 @@
 <section>
     <div class="container">
         <div class="row">
+        <div class="col-md-12 py-5 text-center">
+            <h1>Welcome</h1>
+            <?php echo $message; ?>
+        </div>
             <div class="col-md-6">
-                <h1>Login Form</h1>
-                <?php echo $message; ?>
+                <h2>Login</h2>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
@@ -78,7 +82,7 @@
                 </form>
             </div>
             <div class="col-md-6">
-                <h1>Signup Form</h1>
+                <h2>Signup for a new account</h2>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
