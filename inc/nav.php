@@ -13,11 +13,20 @@
         <a class="nav-link" href="#">Annonces</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Mon compte</a>
+        <a class="nav-link" href="#">Mon compte</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Contact</a>
+        <a class="nav-link" href="#">Contact</a>
       </li>
+      <?php
+      if( isset($_SESSION['login_email']) ){
+      ?>
+        <li class="nav-item">
+          <a class="nav-link" href="?logout">Log Out</a>
+        </li>
+      <?php
+      }
+      ?>
     </ul>
     
   </div>
