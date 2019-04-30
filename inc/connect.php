@@ -1,4 +1,10 @@
 <?php
+    session_start();
+
+    if( empty($_SESSION) && $page != "login" ){
+        header('Location: login.php');
+    }
+
          $bdd_url = "localhost";
         $bdd_user = "root";
     $bdd_password = "";

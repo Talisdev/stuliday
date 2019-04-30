@@ -1,4 +1,5 @@
 <?php 
+    $page = "login";
     require('inc/connect.php');
     require('inc/functions.php');
     $message = "Formulaire non soumis!";
@@ -6,12 +7,14 @@
         $user_email =  $_POST['user_email']; //username issu du formulaire
         $user_password =  $_POST['user_password']; // password issu du formulaire
         global $mysqli;
-        if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = $user_email LIMIT 1") ){ // verifier si le username correspond à un résultat dans la BDD
+        if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){ // verifier si le username correspond à un résultat dans la BDD
             while( $row = $res->fetch_assoc() ){
                 $bdd_password = $row['password_user']; // Récupérer le MDP correspondant si il y a un résultat
             }
             if( $user_password == $bdd_password  ){ // Vérifier la concordance des MDP entre le formulaire et la BDD
                 $message = "LOG OK";     // Chargement du message correspondant
+                $_SESSION['login_email'] = $_POST['user_email'];
+                header('Location: index.php');
             }else{
                 $message = "Mot de passe incorrect."; // Chargement du message correspondant
             }
