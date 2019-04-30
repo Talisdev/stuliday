@@ -9,11 +9,14 @@
         global $mysqli;
         if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){ // verifier si le username correspond à un résultat dans la BDD
             while( $row = $res->fetch_assoc() ){
+                $bdd_id = $row['id'];
+                $bdd_email = $row['email_user'];
                 $bdd_password = $row['password_user']; // Récupérer le MDP correspondant si il y a un résultat
             }
             if( password_verify($user_password, $bdd_password) === TRUE ){ // Vérifier la concordance des MDP entre le formulaire et la BDD
                 $message = "LOG OK";     // Chargement du message correspondant
-                $_SESSION['login_email'] = $_POST['user_email'];
+                $_SESSION['login_email'] = $bdd_email;
+                $_SESSION['id'] = $bdd_id;
                 header('Location: index.php');
             }else{
                 $message = '<div class="alert alert-danger">Mot de passe incorrect.</div>'; // Chargement du message correspondant
