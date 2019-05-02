@@ -67,11 +67,12 @@ function displaySingleAnnounce($annonce_id, $user_id){
                         </div>
                         <input type="hidden" name="annonceID" value="<?php echo $annonce_id; ?>">
                         <input type="hidden" name="userID" value="<?php echo $user_id; ?>">
+                        <input type="submit" name="form-reservation" value="Réservation PHP">
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Réserver</button>
+                    <button type="button" class="btn btn-primary">Réservation AJAX</button>
                 </div>
                 </div>
             </div>
