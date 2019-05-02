@@ -61,10 +61,10 @@
             </div>
             <div class="col-md-4">
                 <a href="#" class="btn btn-primary mb-3">Publier une nouvelle annonce</a>
-                <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces (<?php echo $compteur; ?>)</a>
+                <a href="#" class="btn btn-primary " id="voirAnnonces" data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces (<?php echo $compteur; ?>)</a>
             </div>
             <div class="modal fade" id="listingAnnonces" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog" role="document" style="max-width:1200px !important">
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Mes annonces</h5>
@@ -72,7 +72,7 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="nbrPlaces" value="<?php echo $compteur; ?>"> 
                         <?php displayAllAnnouncesByUser($user_id); ?>
                     </div>
                     <div class="modal-footer">

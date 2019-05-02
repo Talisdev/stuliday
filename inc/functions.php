@@ -34,6 +34,7 @@ function displayAllAnnouncesByUser($user_id){
             <th scope="col">#</th>
             <th scope="col">Titre</th>
             <th scope="col">Date de début</th>
+            <th scope="col">Nombre de places restantes</th>
             <th scope="col">Modifier</th>
             <th scope="col">Supprimer</th>
             </tr>

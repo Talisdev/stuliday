@@ -35,24 +35,24 @@
         });
     });
     $('.supprimer-annonce').on('click', function(){
+        var ancienNombre = $('#nbrPlaces').attr('value');
+        var nouveauNombre = ancienNombre - 1;
         idAnnonce = $(this).attr('value');
-        console.log(idAnnonce);
-
-    
-        $.ajax({
-            method: "POST",
-            url: "ajax/ajax-delete.php",
-            data: { 
-                annonce: idAnnonce
-            }
-        })
-        .done(function( response ) {
-            alert(response);
-        });
-
-
-
-       
+        var confirmMessage = confirm('Êtes-vous sûr de vouloir supprimer cette annonce?');
+        if(confirmMessage){
+            $.ajax({
+                method: "POST",
+                url: "ajax/ajax-delete.php",
+                data: { 
+                    annonce: idAnnonce
+                }
+            })
+            .done(function( response ) {
+                $("#row-"+idAnnonce).hide(500);
+                $('#voirAnnonces').html('Voir mes annonces('+nouveauNombre+')');
+                
+            });
+        }
     });
 </script>
 </body>
