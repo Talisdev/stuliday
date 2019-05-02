@@ -1,10 +1,6 @@
 <?php
     $page = "index";
     require('inc/connect.php');
-
-
-
-
 ?>
 <?php require('inc/head.php'); ?>
 <?php include('inc/header.php'); ?>

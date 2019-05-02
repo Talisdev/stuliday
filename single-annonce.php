@@ -1,6 +1,7 @@
 <?php 
-    $id = $_GET['id'];
     require('inc/connect.php');
+    $user_id = $_SESSION['id'];
+    $annonce_id = $_GET['id'];
     require('inc/functions.php');
     require('inc/head.php');
     include('inc/nav.php'); 
@@ -11,7 +12,7 @@
         <div class="row">
             <div class="col-md-8">
                 <?php
-                    displaySingleAnnounce($id); 
+                    displaySingleAnnounce($annonce_id, $user_id); 
                     // Exécution de la fonction avec récupération de l'ID de l'article via GET et l'URL
                 ?>
             </div>
@@ -21,17 +22,4 @@
         </div>
     </div>
 </section>
-
-    
-
-
-
-
-
-
-
-
-
-
-
 <?php require('inc/footer.php'); ?>
