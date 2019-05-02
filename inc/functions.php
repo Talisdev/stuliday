@@ -103,7 +103,7 @@ function displaySingleAnnounce($annonce_id, $user_id){
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Réservation AJAX</button>
+                    <button type="button" id="AjaxReservation" class="btn btn-primary">Réservation AJAX</button>
                 </div>
                 </div>
             </div>
