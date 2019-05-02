@@ -33,7 +33,26 @@
             $('#modal-reservation .modal-body').html('OK OK OK');
             $('#modal-reservation .modal-footer').hide();
         });
-        
+    });
+    $('.supprimer-annonce').on('click', function(){
+        idAnnonce = $(this).attr('value');
+        console.log(idAnnonce);
+
+    
+        $.ajax({
+            method: "POST",
+            url: "ajax/ajax-delete.php",
+            data: { 
+                annonce: idAnnonce
+            }
+        })
+        .done(function( response ) {
+            alert(response);
+        });
+
+
+
+       
     });
 </script>
 </body>

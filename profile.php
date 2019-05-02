@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-4">
                 <a href="#" class="btn btn-primary mb-3">Publier une nouvelle annonce</a>
-                <a href="#" class="btn btn-primary <?php  if($user_announces < 1){ echo 'disabled'; } ?>" data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces (<?php echo $compteur; ?>)</a>
+                <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces (<?php echo $compteur; ?>)</a>
             </div>
             <div class="modal fade" id="listingAnnonces" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

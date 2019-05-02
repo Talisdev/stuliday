@@ -34,18 +34,21 @@ function displayAllAnnouncesByUser($user_id){
             <th scope="col">#</th>
             <th scope="col">Titre</th>
             <th scope="col">Date de début</th>
-            <th scope="col">Places restantes</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
             </tr>
         </thead>
         <tbody>
             <?php
             while($row = $res->fetch_assoc()){
             ?>
-                <tr>
+                <tr id="row-<?php echo $row['id']; ?>" data-id="<?php echo $row['id']; ?>">
                 <th scope="row"><?php echo $row['id'] ; ?></th>
                 <td><?php echo $row['titre_article'] ; ?></td>
                 <td><?php echo $row['start_date_article'] ; ?></td>
                 <td><?php echo $row['available_article'] ; ?></td>
+                <td><span>Modifier</span></td>
+                <td><span class="supprimer-annonce" id="delete-<?php echo $row['id']; ?>" value="<?php echo $row['id']; ?>">Supprimer</span></td>
                 </tr>
             <?php
             }
