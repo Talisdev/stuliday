@@ -37,7 +37,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 pt-5">
                 <?php
                     if( $resultat_reservation == TRUE ){
                         echo '<div class="alert alert-success">Votre réservation a bien été prise en compte!</div>';

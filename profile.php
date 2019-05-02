@@ -23,7 +23,10 @@
     $user_surname = $row['firstname_user'];
     $user_name = $row['lastname_user'];
     $user_address = $row['adress_user'];
-    $user_announces = $row['number_articles_user'];
+    
+    $res2 = $mysqli->query("SELECT * FROM annonces WHERE author_article = '$user_id'");
+    $compteur = $res2->num_rows;
+  
 
     require('inc/functions.php');
     require('inc/head.php');
@@ -58,8 +61,27 @@
             </div>
             <div class="col-md-4">
                 <a href="#" class="btn btn-primary mb-3">Publier une nouvelle annonce</a>
-                <a href="#" class="btn btn-primary <?php  if($user_announces < 1){ echo 'disabled'; } ?>">Voir mes annonces (<?php echo $user_announces; ?>)</a>
+                <a href="#" class="btn btn-primary <?php  if($user_announces < 1){ echo 'disabled'; } ?>" data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces (<?php echo $compteur; ?>)</a>
             </div>
+            <div class="modal fade" id="listingAnnonces" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mes annonces</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php displayAllAnnouncesByUser($user_id); ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
         </div>
     </div>
 </section>

@@ -11,7 +11,7 @@ function random_images($h, $w){
 }
 function displayAllAnnounces(){
     global $mysqli;
-    $res = $mysqli->query("SELECT * FROM annonces");
+    $res = $mysqli->query("SELECT * FROM annonces WHERE available_article > 0");
     while($row = $res->fetch_assoc()){
     ?>
         <div class="annonce col-md-4">
@@ -24,6 +24,37 @@ function displayAllAnnounces(){
     <?php
     }
 }
+function displayAllAnnouncesByUser($user_id){
+    global $mysqli;
+    $res = $mysqli->query("SELECT * FROM annonces WHERE author_article = $user_id");
+    ?>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Date de début</th>
+            <th scope="col">Places restantes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while($row = $res->fetch_assoc()){
+            ?>
+                <tr>
+                <th scope="row"><?php echo $row['id'] ; ?></th>
+                <td><?php echo $row['titre_article'] ; ?></td>
+                <td><?php echo $row['start_date_article'] ; ?></td>
+                <td><?php echo $row['available_article'] ; ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+    <?php
+}
+
 function displaySingleAnnounce($annonce_id, $user_id){
     global $mysqli;
     $res = $mysqli->query("SELECT * FROM annonces 
@@ -60,7 +91,7 @@ function displaySingleAnnounce($annonce_id, $user_id){
                                 <option selected>Nombre de places à réserver</option>
                                 <?php
                                     for($i = 1; $i <= $available_article; $i++ ){
-                                        echo '<option value="'.$i.'">'.$i.' places <option>';
+                                        echo '<option value="'.$i.'">'.$i.' places</option>';
                                     }
                                 ?>
                             </select>
