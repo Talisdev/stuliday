@@ -1,9 +1,10 @@
 <?php
     require('../inc/connect.php');
+    require('../inc/functions.php');
     $resultat_reservation = FALSE;
-    $user_id = $_POST['user'];
-    $annonce_id = $_POST['annonce'];
-    $inputSelectPlaces = $_POST['nbr'];
+    $user_id = form_security($_POST['user']);
+    $annonce_id = form_security($_POST['annonce']);
+    $inputSelectPlaces = form_security($_POST['nbr']);
     $add_reservation_query = "INSERT INTO `reservations`(
         `id_user`,
         `nbr_places`,

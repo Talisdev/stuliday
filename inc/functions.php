@@ -1,5 +1,22 @@
 <?php
 /* HELPERS */
+function form_security($string){
+    if(  ctype_digit($string)      ){
+        // SI LE CHAMP EST NUMERIQUE
+        $string = intval($string);
+    }else{
+        global $mysqli;
+        // SI CEST UNE CHAINE DE CARACTERES OU AUTRE
+        $string = mysqli_real_escape_string( $mysqli, $string);
+        $string = addslashes($string); 
+    }
+    return $string;
+}
+function valid_email($string) {
+    return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $string)) ? FALSE : TRUE;
+}
+
+
 function short_text($text, $max = 120, $append = ' &hellip;') {
 	if (strlen($text) <= $max) return $text;
 	$return = substr($text, 0, $max);

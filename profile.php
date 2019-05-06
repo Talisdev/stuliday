@@ -3,10 +3,10 @@
     require('inc/connect.php'); 
     $user_id = $_SESSION['id'];
     if(isset($_POST['submit-profile'])){
-        $update_email = $_POST['user_email'];
-        $update_surname = $_POST['user_surname'];
-        $update_name = $_POST['user_name'];
-        $update_address = $_POST['user_address'];
+        $update_email = form_security($_POST['user_email']);
+        $update_surname = form_security($_POST['user_surname']);
+        $update_name = form_security($_POST['user_name']);
+        $update_address = form_security($_POST['user_address']);
 
         $req = "UPDATE `users` SET `firstname_user`='$update_surname',`lastname_user`='$update_name',`email_user`='$update_email',`adress_user`='$update_address' WHERE id = '$user_id'";
         if( $res = $mysqli->query($req) ){

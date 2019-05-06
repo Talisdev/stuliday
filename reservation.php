@@ -3,9 +3,9 @@
     include('inc/phpqrcode/qrlib.php'); 
     $resultat_reservation = FALSE;
     if( $_POST['form-reservation'] ){
-        $user_id = $_POST['userID'];
-        $annonce_id = $_POST['annonceID'];
-        $inputSelectPlaces = $_POST['inputSelectPlaces'];
+        $user_id = form_security($_POST['userID']);
+        $annonce_id = form_security($_POST['annonceID']);
+        $inputSelectPlaces = form_security($_POST['inputSelectPlaces']);
         $add_reservation_query = "INSERT INTO `reservations`(
             `id_user`,
             `nbr_places`,
@@ -28,18 +28,17 @@
             // EXECUTION DE LA REQUETE
             if( $mysqli->query($update_nbr_places) ){
                 $resultat_reservation = TRUE;
-                $codeContents = $user_id.'-'.$annonce_id; 
-                $fileName = 'QR_'.md5($codeContents).'.png'; 
+                $codeUnique = $user_id.'-'.$annonce_id; 
+                $fileName = 'QR_'.md5($codeUnique).'.png'; 
                 
                 $pngAbsoluteFilePath = $fileName; 
                 $urlRelativeFilePath = $fileName; 
                 
                 // generating 
                 if (!file_exists($pngAbsoluteFilePath)) { 
-                    QRcode::png($codeContents, 'reservations/'.$pngAbsoluteFilePath); 
+                    QRcode::png($codeUnique, 'reservations/'.$pngAbsoluteFilePath); 
                 } else { 
                     $message = 'File already generated! We can use this cached file to speed up site on common codes!'; 
-
                 }
             }
         }

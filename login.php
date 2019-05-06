@@ -4,8 +4,9 @@
     require('inc/functions.php');
     $message = "Formulaire non soumis!";
     if( isset( $_POST['submit-login'] ) ){
-        $user_email =  $_POST['user_email']; //username issu du formulaire
-        $user_password =  $_POST['user_password']; // password issu du formulaire
+        $user_email =  form_security($_POST['user_email']); //username issu du formulaire
+        
+        $user_password =  form_security($_POST['user_password']); // password issu du formulaire
         global $mysqli;
         if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){ // verifier si le username correspond à un résultat dans la BDD
             while( $row = $res->fetch_assoc() ){
@@ -26,9 +27,9 @@
         }
     }
     if( isset( $_POST['submit-signup'] ) ){
-        $user_email = $_POST['user_email_signup'];
-        $user_pass = $_POST['user_password_signup'];
-        $user_pass_2 = $_POST['user_password_2_signup'];
+        $user_email = form_security($_POST['user_email_signup']);
+        $user_pass = form_security($_POST['user_password_signup']);
+        $user_pass_2 = form_security($_POST['user_password_2_signup']);
         if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){
             $compteur = $res->num_rows;
             if($compteur != 0){
@@ -89,7 +90,7 @@
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="text" name="user_email_signup" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" name="user_email_signup" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
