@@ -1,5 +1,6 @@
 <?php 
     require('inc/connect.php');
+    include('inc/phpqrcode/qrlib.php'); 
     $resultat_reservation = FALSE;
     if( $_POST['form-reservation'] ){
         $user_id = $_POST['userID'];
@@ -27,6 +28,19 @@
             // EXECUTION DE LA REQUETE
             if( $mysqli->query($update_nbr_places) ){
                 $resultat_reservation = TRUE;
+                $codeContents = $user_id.'-'.$annonce_id; 
+                $fileName = 'QR_'.md5($codeContents).'.png'; 
+                
+                $pngAbsoluteFilePath = $fileName; 
+                $urlRelativeFilePath = $fileName; 
+                
+                // generating 
+                if (!file_exists($pngAbsoluteFilePath)) { 
+                    QRcode::png($codeContents, 'reservations/'.$pngAbsoluteFilePath); 
+                } else { 
+                    $message = 'File already generated! We can use this cached file to speed up site on common codes!'; 
+
+                }
             }
         }
     }
@@ -40,7 +54,7 @@
             <div class="col-md-12 pt-5">
                 <?php
                     if( $resultat_reservation == TRUE ){
-                        echo '<div class="alert alert-success">Votre réservation a bien été prise en compte!</div>';
+                        echo '<div class="alert alert-success"><p>Votre réservation a bien été prise en compte!</p><img src="reservations/'.$urlRelativeFilePath.'" /></div>';
                     }else{
                         echo '<div class="alert alert-warning">Erreur d\'enregistrement!</div>';
                     }
