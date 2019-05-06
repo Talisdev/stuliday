@@ -5,7 +5,7 @@
     $message = "Formulaire non soumis!";
     if( isset( $_POST['submit-login'] ) ){
         $user_email =  form_security($_POST['user_email']); //username issu du formulaire
-        
+
         $user_password =  form_security($_POST['user_password']); // password issu du formulaire
         global $mysqli;
         if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){ // verifier si le username correspond à un résultat dans la BDD
@@ -27,33 +27,38 @@
         }
     }
     if( isset( $_POST['submit-signup'] ) ){
-        $user_email = form_security($_POST['user_email_signup']);
-        $user_pass = form_security($_POST['user_password_signup']);
-        $user_pass_2 = form_security($_POST['user_password_2_signup']);
-        if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){
-            $compteur = $res->num_rows;
-            if($compteur != 0){
-                $message = '<div class="alert alert-danger">Vous possédez déjà un compte.</div>';
-            }else{
-                if( $user_pass == $user_pass_2 ){
-                // Enregistrer le compte
-                $user_pass = password_hash($user_pass, PASSWORD_DEFAULT);
-                $add_user_query = "INSERT INTO `users`(
-                    `email_user`,
-                    `password_user`) 
-                    VALUES (
-                        '$user_email',
-                        '$user_pass'
-                    )";
-                    if( $res = $mysqli->query($add_user_query) ){
-                        $message ='<div class="alert alert-success">Votre compte a bien été créé, vous pouvez maintenant vous enregistrer!</div>';
-                    }
+        $user_email_test = form_security($_POST['user_email_signup']);
+        if(valid_email($user_email_test)){
+            $user_email = form_security($_POST['user_email_signup']);
+            $user_pass = form_security($_POST['user_password_signup']);
+            $user_pass_2 = form_security($_POST['user_password_2_signup']);
+            if( $res = $mysqli->query("SELECT * FROM users WHERE email_user = '".$user_email."' LIMIT 1") ){
+                $compteur = $res->num_rows;
+                if($compteur != 0){
+                    $message = '<div class="alert alert-danger">Vous possédez déjà un compte.</div>';
                 }else{
-                    $message = '<div class="alert alert-danger">Les mots de passe ne correspondent pas!</div>';
+                    if( $user_pass == $user_pass_2 ){
+                    // Enregistrer le compte
+                    $user_pass = password_hash($user_pass, PASSWORD_DEFAULT);
+                    $add_user_query = "INSERT INTO `users`(
+                        `email_user`,
+                        `password_user`) 
+                        VALUES (
+                            '$user_email',
+                            '$user_pass'
+                        )";
+                        if( $res = $mysqli->query($add_user_query) ){
+                            $message ='<div class="alert alert-success">Votre compte a bien été créé, vous pouvez maintenant vous enregistrer!</div>';
+                        }
+                    }else{
+                        $message = '<div class="alert alert-danger">Les mots de passe ne correspondent pas!</div>';
+                    }
                 }
+            }else{
+                $message = '<div class="alert alert-danger">Une erreur vient de se produire.</div>';
             }
         }else{
-            $message = '<div class="alert alert-danger">Une erreur vient de se produire.</div>';
+            $message = "Merci d'indiquer un email dans le champ... email !";
         }
     }
     require('inc/head.php');

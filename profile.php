@@ -1,5 +1,4 @@
 <?php 
-    
     require('inc/connect.php'); 
     $user_id = $_SESSION['id'];
     if(isset($_POST['submit-profile'])){
@@ -60,7 +59,7 @@
                 </form>
             </div>
             <div class="col-md-4">
-                <a href="#" class="btn btn-primary mb-3">Publier une nouvelle annonce</a>
+                <a href="#" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addAnnonce">Publier une nouvelle annonce</a>
                 <a href="#" class="btn btn-primary " id="voirAnnonces" data-toggle="modal" data-target="#listingAnnonces">Voir mes annonces (<?php echo $compteur; ?>)</a>
             </div>
             <div class="modal fade" id="listingAnnonces" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -81,7 +80,9 @@
                     </div>
                     </div>
                 </div>
-                </div>
+            </div>
+            <?php include('inc/modals/add-annonce.php'); ?>
+        
         </div>
     </div>
 </section>

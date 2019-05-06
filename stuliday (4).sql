@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 02 mai 2019 à 12:55
+-- Généré le :  lun. 06 mai 2019 à 11:08
 -- Version du serveur :  10.1.36-MariaDB
 -- Version de PHP :  7.2.10
 
@@ -51,27 +51,21 @@ CREATE TABLE `annonces` (
 --
 
 INSERT INTO `annonces` (`id`, `titre_article`, `image_url`, `contenu_article`, `categorie_article`, `active`, `start_date_article`, `end_date_article`, `publish_date_article`, `available_article`, `price_article`, `adress_article`, `city_article`, `postal_article`, `author_article`) VALUES
-(3, 'Lovely Flat *** Grand Théâtre', 'images/image5.jpg', 'Venez poser vos valises dans cet appartement plein de charme, design et confortable, situé au coeur du Bordeaux historique et vivant, près du Grand Théâtre, dans la rue Ste Catherine.', '2', 1, '2018-11-29', '2018-11-29', '2018-11-09 11:20:29', 120, 45, '3', ' Place St-Michel', 33000, 37),
-(4, 'T1 Bis au coeur du vieux Bordeaux', 'images/image1.jpg', 'Ce beau studio avec sa chambre en mezzanine, a été rénové et aménagé pour en faire un nid cosy et confortable. Il est situé dans un ancien hôtel particulier en pierre, au cœur de la vieille ville (rue des faussets), idéal pour découvrir Bordeaux.', '3', 1, '2018-11-17', '2018-11-21', '2018-11-09 11:20:29', -2, 65, '3', ' Place St-Michel', 33000, 27),
-(5, 'Joli appartement de 30m2 au coeur de Bordeaux', 'images/image3.jpg', 'Joli appartement refait à neuf dans une rue calme au coeur de Bordeaux à proximité des commodités et des transports en commun. Situé dans une des plus ancienne rue de Bordeaux et proche de la grosse cloche, du pont de pierre, de la basilique Saint Michel, de la place de la bourse et des quais.', '2', 1, '2018-11-28', '2018-11-29', '2018-11-09 11:20:29', 1, 79, '3', ' Place St-Michel', 33000, 27),
-(6, 'SUPERBE T2 PLEIN COEUR DE BORDEAUX', 'images/image7.jpg', 'Spacieux deux-pièces typique avec ses pierres apparentes et sa belle cheminée. Il est chaleureux, lumineux et fonctionnel. Vous êtes dans le coeur de Bx cerné par les terrasses, les boutiques, les restos, les vieilles ruelles et les jolies places.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 1, 129, '3', ' Place St-Michel', 33000, 27),
-(7, 'Duplex Bordeaux Saint Michel', 'images/image7.jpg', 'Mon logement est proche de la vue exceptionnelle des quais sur La Garonne, les nombreux restaurants autour, les activités adaptées aux familles à la plaine des sports sur les quais.. Vous apprécierez mon logement pour le quartier historique de St Michel, la luminosité de l\'appartement, les lits confortables, la cuisine équipée, le confort de la rénovation.. Mon logement est parfait pour les couples, les voyageurs en solo, les voyageurs d\'affaires et les familles. Tram, vélos à 3mn à pied.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 1, 129, '3', ' Place St-Michel', 33000, 27),
-(8, 'SUPERBE T2 PLEIN COEUR DE BORDEAUX', 'images/image7.jpg', 'Spacieux deux-pièces typique avec ses pierres apparentes et sa belle cheminée. Il est chaleureux, lumineux et fonctionnel. Vous êtes dans le coeur de Bx cerné par les terrasses, les boutiques, les restos, les vieilles ruelles et les jolies places.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 1, 129, '3', ' Place St-Michel', 33000, 27),
 (9, 'SUPERBE T2 PLEIN COEUR DE BORDEAUX', 'images/image7.jpg', 'Spacieux deux-pièces typique avec ses pierres apparentes et sa belle cheminée. Il est chaleureux, lumineux et fonctionnel. Vous êtes dans le coeur de Bx cerné par les terrasses, les boutiques, les restos, les vieilles ruelles et les jolies places.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 1, 129, '3', ' Place St-Michel', 33000, 27),
 (10, 'SUPERBE T2 PLEIN COEUR DE BORDEAUX', 'images/image7.jpg', 'Spacieux deux-pièces typique avec ses pierres apparentes et sa belle cheminée. Il est chaleureux, lumineux et fonctionnel. Vous êtes dans le coeur de Bx cerné par les terrasses, les boutiques, les restos, les vieilles ruelles et les jolies places.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 0, 129, '3', ' Place St-Michel', 33000, 27),
-(11, 'Magnifique Duplex au centre de St Michel', 'images/image2.jpg', 'Laissez-vous séduire par la douceur d’un séjour à Bordeaux dans ce duplex d\'architecte situé dans un bel immeuble du XVIII siècle en plein cœur du quartier historique.', '3', 1, '2018-11-23', '2018-11-25', '2018-11-05 09:17:35', 1, 279, '3, Place St-Michel', 'Bordeaux', 33000, 27),
-(12, 'St Pierre/Magnifique Suite rue de la Merci', 'images/image4.jpg', 'Vivez la Dolce Vita à la Bordelaise. Ce pied à terre de 40m2 aux prestations haut de gamme (cuisine en corian, Nespresso Kitchenaid , linge jacquard français, Speaker bluetooth, thé Kusmi Tea, Chromecast TV..) vous séduira par son caractère et sa position centrale. Accédez à pied à tous les lieux touristiques de la ville. A vous, les restos rue du Parlement et rue St Rémi, les boutiques tendances rue du Pas St George et rue St James, les apéritifs place Camille Jullian ou Ferdinand Lafargue...', '1', 1, '2018-11-22', '2018-11-08', '2018-11-09 11:20:29', 3, 23, '3', ' Place St-Michel', 33000, 27),
-(13, 'Lovely Flat *** Grand Théâtre', 'images/image5.jpg', 'Venez poser vos valises dans cet appartement plein de charme, design et confortable, situé au coeur du Bordeaux historique et vivant, près du Grand Théâtre, dans la rue Ste Catherine.', '2', 1, '2018-11-29', '2018-11-29', '2018-11-09 11:20:29', 4, 45, '3', ' Place St-Michel', 33000, 27),
+(11, 'Magnifique Duplex au centre de St Michel', 'images/image2.jpg', 'Laissez-vous séduire par la douceur d’un séjour à Bordeaux dans ce duplex d\'architecte situé dans un bel immeuble du XVIII siècle en plein cœur du quartier historique.', '3', 1, '2018-11-23', '2018-11-25', '2018-11-05 09:17:35', -2, 279, '3, Place St-Michel', 'Bordeaux', 33000, 27),
+(12, 'St Pierre/Magnifique Suite rue de la Merci', 'images/image4.jpg', 'Vivez la Dolce Vita à la Bordelaise. Ce pied à terre de 40m2 aux prestations haut de gamme (cuisine en corian, Nespresso Kitchenaid , linge jacquard français, Speaker bluetooth, thé Kusmi Tea, Chromecast TV..) vous séduira par son caractère et sa position centrale. Accédez à pied à tous les lieux touristiques de la ville. A vous, les restos rue du Parlement et rue St Rémi, les boutiques tendances rue du Pas St George et rue St James, les apéritifs place Camille Jullian ou Ferdinand Lafargue...', '1', 1, '2018-11-22', '2018-11-08', '2018-11-09 11:20:29', -3, 23, '3', ' Place St-Michel', 33000, 27),
+(13, 'Lovely Flat *** Grand Théâtre', 'images/image5.jpg', 'Venez poser vos valises dans cet appartement plein de charme, design et confortable, situé au coeur du Bordeaux historique et vivant, près du Grand Théâtre, dans la rue Ste Catherine.', '2', 1, '2018-11-29', '2018-11-29', '2018-11-09 11:20:29', 1, 45, '3', ' Place St-Michel', 33000, 27),
 (14, 'T1 Bis au coeur du vieux Bordeaux', 'images/image1.jpg', 'Ce beau studio avec sa chambre en mezzanine, a été rénové et aménagé pour en faire un nid cosy et confortable. Il est situé dans un ancien hôtel particulier en pierre, au cœur de la vieille ville (rue des faussets), idéal pour découvrir Bordeaux.', '3', 1, '2018-11-17', '2018-11-21', '2018-11-09 11:20:29', 2, 65, '3', ' Place St-Michel', 33000, 27),
 (15, 'Joli appartement de 30m2 au coeur de Bordeaux', 'images/image3.jpg', 'Joli appartement refait à neuf dans une rue calme au coeur de Bordeaux à proximité des commodités et des transports en commun. Situé dans une des plus ancienne rue de Bordeaux et proche de la grosse cloche, du pont de pierre, de la basilique Saint Michel, de la place de la bourse et des quais.', '2', 1, '2018-11-28', '2018-11-29', '2018-11-09 11:20:29', 1, 79, '3', ' Place St-Michel', 33000, 27),
 (16, 'SUPERBE T2 PLEIN COEUR DE BORDEAUX', 'images/image7.jpg', 'Spacieux deux-pièces typique avec ses pierres apparentes et sa belle cheminée. Il est chaleureux, lumineux et fonctionnel. Vous êtes dans le coeur de Bx cerné par les terrasses, les boutiques, les restos, les vieilles ruelles et les jolies places.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 1, 129, '3', ' Place St-Michel', 33000, 27),
-(21, 'Magnifique Duplex au centre de St Michel', 'images/image2.jpg', 'Laissez-vous séduire par la douceur d’un séjour à Bordeaux dans ce duplex d\'architecte situé dans un bel immeuble du XVIII siècle en plein cœur du quartier historique.', '3', 1, '2018-11-23', '2018-11-25', '2018-11-05 09:17:35', 1, 279, '3, Place St-Michel', 'Bordeaux', 33000, 27),
+(21, 'Magnifique Duplex au centre de St Michel', 'images/image2.jpg', 'Laissez-vous séduire par la douceur d’un séjour à Bordeaux dans ce duplex d\'architecte situé dans un bel immeuble du XVIII siècle en plein cœur du quartier historique.', '3', 1, '2018-11-23', '2018-11-25', '2018-11-05 09:17:35', 0, 279, '3, Place St-Michel', 'Bordeaux', 33000, 27),
 (22, 'St Pierre/Magnifique Suite rue de la Merci', 'images/image4.jpg', 'Vivez la Dolce Vita à la Bordelaise! Ce pied à terre de 40m2 aux prestations haut de gamme (cuisine en corian, Nespresso Kitchenaid , linge jacquard français, Speaker bluetooth, thé Kusmi Tea, Chromecast TV..) vous séduira par son caractère et sa position centrale. Accédez à pied à tous les lieux touristiques de la ville. A vous, les restos rue du Parlement et rue St Rémi, les boutiques tendances rue du Pas St George et rue St James, les apéritifs place Camille Jullian ou Ferdinand Lafargue...', '1', 1, '2018-11-22', '2018-11-08', '2018-11-09 11:20:29', 0, 23, '3', ' Place St-Michel', 33000, 27),
 (23, 'Lovely Flat *** Grand Théâtre', 'images/image5.jpg', 'Venez poser vos valises dans cet appartement plein de charme, design et confortable, situé au coeur du Bordeaux historique et vivant, près du Grand Théâtre, dans la rue Ste Catherine.', '2', 1, '2018-11-29', '2018-11-29', '2018-11-09 11:20:29', 0, 45, '3', ' Place St-Michel', 33000, 27),
 (24, 'T1 Bis au coeur du vieux Bordeaux', 'images/image1.jpg', 'Ce beau studio avec sa chambre en mezzanine, a été rénové et aménagé pour en faire un nid cosy et confortable. Il est situé dans un ancien hôtel particulier en pierre, au cœur de la vieille ville (rue des faussets), idéal pour découvrir Bordeaux.', '3', 1, '2018-11-17', '2018-11-21', '2018-11-09 11:20:29', 0, 65, '3', ' Place St-Michel', 33000, 27),
 (25, 'Joli appartement de 30m2 au coeur de Bordeaux', 'images/image3.jpg', 'Joli appartement refait à neuf dans une rue calme au coeur de Bordeaux à proximité des commodités et des transports en commun. Situé dans une des plus ancienne rue de Bordeaux et proche de la grosse cloche, du pont de pierre, de la basilique Saint Michel, de la place de la bourse et des quais.', '7', 1, '2018-11-28', '2018-11-29', '2018-11-09 11:20:29', -4, 79, '3', ' Place St-Michel', 33000, 27),
 (26, 'SUPERBE T2 PLEIN COEUR DE BORDEAUX', 'images/image7.jpg', 'Spacieux deux-pièces typique avec ses pierres apparentes et sa belle cheminée. Il est chaleureux, lumineux et fonctionnel. Vous êtes dans le coeur de Bx cerné par les terrasses, les boutiques, les restos, les vieilles ruelles et les jolies places.', '5', 1, '2018-11-23', '2018-11-25', '2018-11-09 11:20:29', 0, 129, '3', ' Place St-Michel', 33000, 27),
-(31, 'Magnifique Duplex au centre de St Michel', 'images/image2.jpg', 'Laissez-vous séduire par la douceur d’un séjour à Bordeaux dans ce duplex d\'architecte situé dans un bel immeuble du XVIII siècle en plein cœur du quartier historique.', '3', 1, '2018-11-23', '2018-11-25', '2018-11-05 09:17:35', 1, 279, '3, Place St-Michel', 'Bordeaux', 33000, 27),
+(31, 'Magnifique Duplex au centre de St Michel', 'images/image2.jpg', 'Laissez-vous séduire par la douceur d’un séjour à Bordeaux dans ce duplex d\'architecte situé dans un bel immeuble du XVIII siècle en plein cœur du quartier historique.', '3', 1, '2018-11-23', '2018-11-25', '2018-11-05 09:17:35', 0, 279, '3, Place St-Michel', 'Bordeaux', 33000, 27),
 (32, 'St Pierre/Magnifique Suite rue de la Merci', 'images/image4.jpg', 'Vivez la Dolce Vita à la Bordelaise! Ce pied à terre de 40m2 aux prestations haut de gamme (cuisine en corian, Nespresso Kitchenaid , linge jacquard français, Speaker bluetooth, thé Kusmi Tea, Chromecast TV..) vous séduira par son caractère et sa position centrale. Accédez à pied à tous les lieux touristiques de la ville. A vous, les restos rue du Parlement et rue St Rémi, les boutiques tendances rue du Pas St George et rue St James, les apéritifs place Camille Jullian ou Ferdinand Lafargue...', '1', 1, '2018-11-22', '2018-11-08', '2018-11-09 11:20:29', 3, 23, '3', ' Place St-Michel', 33000, 27),
 (33, 'Lovely Flat *** Grand Théâtre', 'images/image5.jpg', 'Venez poser vos valises dans cet appartement plein de charme, design et confortable, situé au coeur du Bordeaux historique et vivant, près du Grand Théâtre, dans la rue Ste Catherine.', '2', 1, '2018-11-29', '2018-11-29', '2018-11-09 11:20:29', 4, 45, '3', ' Place St-Michel', 33000, 27),
 (34, 'T1 Bis au coeur du vieux Bordeaux', 'images/image1.jpg', 'Ce beau studio avec sa chambre en mezzanine, a été rénové et aménagé pour en faire un nid cosy et confortable. Il est situé dans un ancien hôtel particulier en pierre, au cœur de la vieille ville (rue des faussets), idéal pour découvrir Bordeaux.', '3', 1, '2018-11-17', '2018-11-21', '2018-11-09 11:20:29', 2, 65, '3', ' Place St-Michel', 33000, 27),
@@ -143,6 +137,45 @@ INSERT INTO `categories` (`id`, `titre_categorie`) VALUES
 (6, 'Logement Entier - Chalet'),
 (7, 'Place de MobilHome'),
 (8, 'Chambre - Auberge de Jeunesse');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cities`
+--
+
+CREATE TABLE `cities` (
+  `id` int(11) NOT NULL,
+  `nom_cities` varchar(255) NOT NULL,
+  `lat_cities` varchar(10) NOT NULL,
+  `long_cities` varchar(10) NOT NULL,
+  `nbr_cities` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `cities`
+--
+
+INSERT INTO `cities` (`id`, `nom_cities`, `lat_cities`, `long_cities`, `nbr_cities`) VALUES
+(39, 'Paris', '48.866667', '2.333333', 0),
+(40, 'Lyon', '45.748457', '4.846711', 0),
+(41, 'Marseille', '43.285413', '5.37606', 0),
+(42, 'Lille', '50.632971', '3.058585', 0),
+(43, 'Nice', '43.713644', '7.25952', 0),
+(44, 'Toulouse', '43.599516', '1.433188', 0),
+(45, 'Bordeaux', '44.840439', '-0.5805', 0),
+(46, 'Strasbourg', '48.600381', '7.787355', 0),
+(47, 'Nantes', '47.216509', '-1.552379', 0),
+(48, 'Montpellier', '43.61092', '3.87723', 0),
+(49, 'Tours', '47.394836', '0.703977', 0),
+(50, 'Nîmes', '43.833778', '4.359623', 0),
+(51, 'Aix-en-Provence', '43.528695', '5.448791', 0),
+(52, 'Perpignan', '42.696172', '2.897098', 0),
+(53, 'Biarritz', '43.480119', '-1.555581', 0),
+(54, 'Brest', '48.390756', '-4.486165', 0),
+(55, 'La Rochelle', '46.166667', '-1.15', 0),
+(56, 'Ajaccio', '41.927226', '8.734619', 0),
+(57, 'Bastia', '42.702778', '9.45', 0);
 
 -- --------------------------------------------------------
 
@@ -236,7 +269,19 @@ INSERT INTO `reservations` (`id`, `id_user`, `nbr_places`, `id_annonce`, `qr_cod
 (80, 37, 1, 25, ''),
 (81, 37, 1, 25, ''),
 (82, 37, 2, 4, ''),
-(83, 37, 2, 4, '');
+(83, 37, 2, 4, ''),
+(84, 37, 3, 12, ''),
+(85, 37, 3, 12, ''),
+(86, 37, 1, 5, ''),
+(87, 37, 1, 6, ''),
+(88, 37, 1, 11, ''),
+(89, 37, 1, 11, ''),
+(90, 37, 1, 11, ''),
+(91, 37, 1, 13, ''),
+(92, 37, 1, 13, ''),
+(93, 37, 1, 13, ''),
+(94, 37, 1, 21, ''),
+(95, 37, 1, 31, '');
 
 -- --------------------------------------------------------
 
@@ -260,7 +305,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname_user`, `lastname_user`, `email_user`, `password_user`, `image_user`, `adress_user`, `number_articles_user`) VALUES
-(37, 'Thomas', 'test', 'ccc@ccc.fr', '$2y$10$7bG.RKi.1hIeE1P0v11V.Oox7znTKPh6HB2MR2fca6Q7e6sS64sNC', '', 'adresse', 12);
+(37, 'Thomas', 'test', 'ccc@ccc.fr', '$2y$10$7bG.RKi.1hIeE1P0v11V.Oox7znTKPh6HB2MR2fca6Q7e6sS64sNC', '', 'adresse', 12),
+(38, '', '', '', '$2y$10$066qw6Iv8Kz.g6DSUyNf8eYchR/fLUGkDw9YkWhvG1mXyDWt/7DBK', '', '', 0),
+(39, '', '', 'zefzeqfzefezf', '$2y$10$5ijsJBAOuHVW0wN9PUsAkutrJsjXjydM5M1LjAXB6BCtkZew/Ly0O', '', '', 0);
 
 --
 -- Index pour les tables déchargées
@@ -276,6 +323,12 @@ ALTER TABLE `annonces`
 -- Index pour la table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `cities`
+--
+ALTER TABLE `cities`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -307,16 +360,22 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT pour la table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
